@@ -7,7 +7,7 @@
 
 D_SRC	=	./src/
 
-NAME	=	resolv-rubiks
+NAME	=	rubiks-resolver
 
 $(NAME): $(wildcard $(D_SRC)*.py)
 		cp $(D_SRC)main.py $@
