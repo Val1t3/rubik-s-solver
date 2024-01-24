@@ -3,11 +3,13 @@
 import cv2
 
 from src.webcam.utils.Square import Square
+from src.cube.Cube import Cube
 
 class Webcam:
 
-    def __init__(self):
+    def __init__(self, cube: Cube):
         self.cap = cv2.VideoCapture(0)
+        self.cube = cube
 
 
     def run(self) -> None:
