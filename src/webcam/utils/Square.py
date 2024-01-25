@@ -18,7 +18,6 @@ class Square:
     def draw(self, width: int, height: int) -> None:
         default_top_left_corner = (width / 2 - self.size * 1.5, height / 2 - self.size * 1.5)
 
-        # DISPLAY SQUARES
         for y in range(3):
             for x in range(3):
                 top_left_corner = (int(default_top_left_corner[0] + (150 * x)), int(default_top_left_corner[1] + (150 * y)))
