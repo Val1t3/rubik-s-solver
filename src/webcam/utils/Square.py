@@ -4,6 +4,10 @@ import cv2
 
 class Square:
 
+    """
+    Class to manage squares to display on the webcam.
+    """
+
     def __init__(self, frame):
         self.frame = frame
         self.size = 40

@@ -6,6 +6,10 @@ from src.webcam.utils.Utils import Utils
 
 class ColorParser:
 
+    """
+    Class to parse the colors on the webcam.
+    """
+
     def __init__(self, width: int, height: int):
         self.width = width
         self.height = height

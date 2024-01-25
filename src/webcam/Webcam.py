@@ -8,6 +8,10 @@ from src.webcam.parser.ColorParser import ColorParser
 
 class Webcam:
 
+    """
+    Main class to manage the webcam and Rubik's Cube colors detection.
+    """
+
     def __init__(self, cube: Cube):
         self.cap = cv2.VideoCapture(0)
         self.cube = cube

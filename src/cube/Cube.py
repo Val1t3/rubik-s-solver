@@ -4,6 +4,10 @@ from src.webcam.utils.Utils import Utils
 
 class Cube:
 
+    """
+    Class to manage the Rubik's Cube.
+    """
+
     FRONT = 0
     BACK = 1
     LEFT = 2

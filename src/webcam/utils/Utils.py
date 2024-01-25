@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 
 class Utils:
+
+    """
+    Class to manage utils functions.
+    """
+
     def __init__(self):
         pass
 
