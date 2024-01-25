@@ -2,62 +2,51 @@
 
 import cv2
 
+from src.webcam.utils.Utils import Utils
+
 class ColorParser:
 
     def __init__(self, width: int, height: int):
         self.width = width
         self.height = height
+        self.size = 30
 
 
-    def parse(self, frame) -> str:
-        # GET AVERAGE COLOR
-        average_color = self.get_average_color(frame)
-        # GET COLOR NAME
-        color_name = self.get_color_name(average_color)
-        # RETURN COLOR NAME
-        print(f"color name -> {color_name}")
-        return color_name
+    def parse(self, frame) -> None:
+        Utils().display_face(self.get_colors_on_face(frame))
 
 
-    def get_color_on_pos(self, frame, pos: int, size: int) -> tuple:
-        average_color = cv2.mean(frame[pos[1]:pos[1]+size, pos[0]:pos[0]+size])
-        return average_color
+    def get_colors_on_face(self, frame) -> list:
+        default_pos = (int(self.width / 2 - self.size * 1.8), int(self.height / 2 - self.size * 1.8))
+        colors_list = []
+
+        for y in range(3):
+            for x in range(3):
+                pos = (default_pos[0] + (150 * x), default_pos[1] + (150 * y))
+                colors_list.append(self.get_color_name(self.get_color_on_pos(frame, pos)))
+
+        return colors_list
 
 
-    def get_average_color(self, frame) -> tuple:
-        size = 30
-        pos  = (int(self.width / 2 - size * 1.8), int(self.height / 2 - size * 1.8))
-        print(f"get color position -> {pos}")
+    def get_color_on_pos(self, frame, pos: int) -> tuple:
+        average_color = cv2.mean(frame[pos[1]:pos[1] + self.size, pos[0]:pos[0] + self.size])
+        res = (int(average_color[0]), int(average_color[1]), int(average_color[2]))
 
-        average_color = cv2.mean(frame[pos[1]:pos[1]+size, pos[0]:pos[0]+size])
-        print(average_color)
-
-        # Calculate the center of the detection area
-        center_of_detection = (pos[0] + size // 2, pos[1] + size // 2)
-        print(f"center of detection -> {center_of_detection}")
-
-        # DEBUG
-        cv2.circle(frame, center_of_detection, 5, (0, 255, 0), -1)  # Green dot
-        cv2.rectangle(frame, pos, (pos[0] + size, pos[1] + size), (255, 0, 0), 2)  # Blue rectangle
-
-        return average_color
+        return res
 
 
     def get_color_name(self, average_color: tuple) -> str:
-        # BGR
-        print(average_color)
-        res = (int(average_color[0]), int(average_color[1]), int(average_color[2]))
-        print(res)
-        if res[0] >= 100 and res[1] >= 100 and res[2] >= 100:
+        # Tuple is in BGR order.
+        if average_color[0] >= 100 and average_color[1] >= 100 and average_color[2] >= 100:
             return "W"
-        elif res[0] > res[1] and res[0] > res[2]:
+        elif average_color[0] > average_color[1] and average_color[0] > average_color[2]:
             return "B"
-        elif res[1] > res[0] and res[1] > res[2]:
+        elif average_color[1] > average_color[0] and average_color[1] > average_color[2]:
             return "G"
-        elif res[2] > res[0] and res[2] > res[1]:
-            if res[1] < 150 and res[0] < 10:
+        elif average_color[2] > average_color[0] and average_color[2] > average_color[1]:
+            if average_color[1] < 150 and average_color[0] < 10:
                 return "O"
-            elif res[1] > 150 and res[0] < 10:
+            elif average_color[1] > 150 and average_color[0] < 10:
                 return "Y"
             else:
                 return "R"
