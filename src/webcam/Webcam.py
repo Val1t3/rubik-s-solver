@@ -25,7 +25,7 @@ class Webcam:
 
             # ERROR HANDLING
             if not ret:
-                print("Can't receive frame (stream end?). Exiting ...")
+                print("Can't receive frame. Exiting ...")
                 break
 
             if self.width == 200 and self.height == 200:
@@ -45,6 +45,21 @@ class Webcam:
             cv2.destroyAllWindows()
         elif key == ord('&'):
             self.cube.set_face(Cube.FRONT, self.check_color(frame))
+            self.cube.display_cube()
+        elif key == ord('é'):
+            self.cube.set_face(Cube.RIGHT, self.check_color(frame))
+            self.cube.display_cube()
+        elif key == ord('"'):
+            self.cube.set_face(Cube.LEFT, self.check_color(frame))
+            self.cube.display_cube()
+        elif key == ord("'"):
+            self.cube.set_face(Cube.UP, self.check_color(frame))
+            self.cube.display_cube()
+        elif key == ord('('):
+            self.cube.set_face(Cube.DOWN, self.check_color(frame))
+            self.cube.display_cube()
+        elif key == ord('§'):
+            self.cube.set_face(Cube.BACK, self.check_color(frame))
             self.cube.display_cube()
 
 

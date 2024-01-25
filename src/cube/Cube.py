@@ -9,11 +9,11 @@ class Cube:
     """
 
     FRONT = 0
-    BACK = 1
+    RIGHT = 1
     LEFT = 2
-    RIGHT = 3
-    UP = 4
-    DOWN = 5
+    UP = 3
+    DOWN = 4
+    BACK = 5
 
 
     def __init__(self):
@@ -32,6 +32,16 @@ class Cube:
 
         if face == self.FRONT:
             self.faces[self.FRONT][4] = "W"
+        elif face == self.BACK:
+            self.faces[self.BACK][4] = "Y"
+        elif face == self.LEFT:
+            self.faces[self.LEFT][4] = "R"
+        elif face == self.RIGHT:
+            self.faces[self.RIGHT][4] = "O"
+        elif face == self.UP:
+            self.faces[self.UP][4] = "G"
+        elif face == self.DOWN:
+            self.faces[self.DOWN][4] = "B"
 
 
     def get_face(self, face: str) -> list:
