@@ -12,6 +12,7 @@ class Webcam:
         self.cap = cv2.VideoCapture(0)
         self.cube = cube
         self.frame_name = "Rubik's Resolver"
+        self.width, self.height = 200, 200
 
 
     def run(self) -> None:
@@ -23,7 +24,13 @@ class Webcam:
                 print("Can't receive frame (stream end?). Exiting ...")
                 break
 
-            Square(frame).draw(self.frame_name)
+            if self.width == 200 and self.height == 200:
+                try:
+                    _, _, self.width, self.height = cv2.getWindowImageRect(self.frame_name)
+                except:
+                    self.width, self.height = 200, 200
+
+            Square(frame).draw(self.width, self.height)
             # self.check_color(frame)
             cv2.imshow(self.frame_name, frame)
             if cv2.waitKey(1) & 0xFF == ord('a'):
@@ -37,4 +44,4 @@ class Webcam:
 
 
     def check_color(self, frame) -> None:
-        ColorParser(self.frame_name).parse(frame)
+        ColorParser(self.width, self.height).parse(frame)
