@@ -11,9 +11,9 @@ class Square:
         self.thickness = 3
 
 
-    def draw(self) -> None:
+    def draw(self, frame_name: str) -> None:
         try:
-            _, _, width, height = cv2.getWindowImageRect('frame')
+            _, _, width, height = cv2.getWindowImageRect(frame_name)
         except:
             width, height = 200, 200
 
