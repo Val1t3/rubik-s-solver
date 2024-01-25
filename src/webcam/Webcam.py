@@ -31,17 +31,18 @@ class Webcam:
                     self.width, self.height = 200, 200
 
             Square(frame).draw(self.width, self.height)
-            # self.check_color(frame)
             cv2.imshow(self.frame_name, frame)
-            if cv2.waitKey(1) & 0xFF == ord('a'):
-                self.check_color(frame)
-            # if cv2.waitKey(1) & 0xFF == ord('q'):
-            #     break
-
-        # RELEASE CAPTURE
-        self.cap.release()
-        cv2.destroyAllWindows()
+            self.input_management(cv2.waitKey(1), frame)
 
 
-    def check_color(self, frame) -> None:
-        ColorParser(self.width, self.height).parse(frame)
+    def input_management(self, key: int, frame) -> None:
+        if key == ord('q'):
+            self.cap.release()
+            cv2.destroyAllWindows()
+        elif key == ord('&'):
+            self.cube.set_face(Cube.FRONT, self.check_color(frame))
+            self.cube.display_cube()
+
+
+    def check_color(self, frame) -> list:
+        return ColorParser(self.width, self.height).parse(frame)

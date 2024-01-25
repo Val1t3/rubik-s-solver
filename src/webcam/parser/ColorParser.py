@@ -12,8 +12,11 @@ class ColorParser:
         self.size = 30
 
 
-    def parse(self, frame) -> None:
-        Utils().display_face(self.get_colors_on_face(frame))
+    def parse(self, frame) -> list:
+        res = self.get_colors_on_face(frame)
+        Utils().display_face(res)
+
+        return res
 
 
     def get_colors_on_face(self, frame) -> list:
