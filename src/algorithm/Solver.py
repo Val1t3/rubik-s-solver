@@ -30,13 +30,14 @@ class Solver:
         self.moves = []
 
     def solve(self) -> None:
-        print("Solving...")
+        print("\n### Solving... ###")
 
         colors_list = self.colors_cube_to_list()
         if not self.error_handling(colors_list):
             return
 
         self.cube.set_mov("U")
+        self.cube.display_cube()
 
 
     def error_handling(self, cube_str: str) -> bool:
