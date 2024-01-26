@@ -60,3 +60,49 @@ class Cube:
         print(f"... {self.faces[self.DOWN][0]}{self.faces[self.DOWN][1]}{self.faces[self.DOWN][2]} ... ...")
         print(f"... {self.faces[self.DOWN][3]}{self.faces[self.DOWN][4]}{self.faces[self.DOWN][5]} ... ...")
         print(f"... {self.faces[self.DOWN][6]}{self.faces[self.DOWN][7]}{self.faces[self.DOWN][8]} ... ...")
+
+
+    def set_mov(self, movement: str) -> None:
+        save = self.faces.copy()
+        if movement == "U":
+            self.faces[self.UP][0] = save[self.UP][6]
+            self.faces[self.UP][1] = save[self.UP][3]
+            self.faces[self.UP][2] = save[self.UP][0]
+            self.faces[self.UP][3] = save[self.UP][7]
+            self.faces[self.UP][5] = save[self.UP][1]
+            self.faces[self.UP][6] = save[self.UP][8]
+            self.faces[self.UP][7] = save[self.UP][5]
+            self.faces[self.UP][8] = save[self.UP][2]
+            self.faces[self.LEFT][0] = save[self.FRONT][0]
+            self.faces[self.LEFT][1] = save[self.FRONT][1]
+            self.faces[self.LEFT][2] = save[self.FRONT][2]
+            self.faces[self.FRONT][0] = save[self.RIGHT][0]
+            self.faces[self.FRONT][1] = save[self.RIGHT][1]
+            self.faces[self.FRONT][2] = save[self.RIGHT][2]
+            self.faces[self.RIGHT][0] = save[self.BACK][0]
+            self.faces[self.RIGHT][1] = save[self.BACK][1]
+            self.faces[self.RIGHT][2] = save[self.BACK][2]
+            self.faces[self.BACK][0] = save[self.LEFT][0]
+            self.faces[self.BACK][1] = save[self.LEFT][1]
+            self.faces[self.BACK][2] = save[self.LEFT][2]
+        elif movement == "U'":
+            self.faces[self.UP][0] = save[self.UP][2]
+            self.faces[self.UP][1] = save[self.UP][5]
+            self.faces[self.UP][2] = save[self.UP][8]
+            self.faces[self.UP][3] = save[self.UP][1]
+            self.faces[self.UP][5] = save[self.UP][7]
+            self.faces[self.UP][6] = save[self.UP][0]
+            self.faces[self.UP][7] = save[self.UP][3]
+            self.faces[self.UP][8] = save[self.UP][6]
+            self.faces[self.LEFT][0] = save[self.BACK][0]
+            self.faces[self.LEFT][1] = save[self.BACK][1]
+            self.faces[self.LEFT][2] = save[self.BACK][2]
+            self.faces[self.FRONT][0] = save[self.LEFT][0]
+            self.faces[self.FRONT][1] = save[self.LEFT][1]
+            self.faces[self.FRONT][2] = save[self.LEFT][2]
+            self.faces[self.RIGHT][0] = save[self.FRONT][0]
+            self.faces[self.RIGHT][1] = save[self.FRONT][1]
+            self.faces[self.RIGHT][2] = save[self.FRONT][2]
+            self.faces[self.BACK][0] = save[self.RIGHT][0]
+            self.faces[self.BACK][1] = save[self.RIGHT][1]
+            self.faces[self.BACK][2] = save[self.RIGHT][2]
