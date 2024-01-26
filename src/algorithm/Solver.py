@@ -8,20 +8,25 @@ class Solver:
     Class to resolve the Rubik's Cube.
     """
 
-    POSITION = [
-        "Line 1",
-        "Line 2",
-        "Line 3",
-        "Column 1",
-        "Column 2",
-        "Column 3"
-    ]
-
-    MOVEMENT = [
-        "Right",
-        "Left",
-        "Up",
-        "Down"
+    MOVEMENTS = [
+        "U",
+        "U'",
+        "U2",
+        "D",
+        "D'",
+        "D2",
+        "R",
+        "R'",
+        "R2",
+        "L",
+        "L'",
+        "L2",
+        "F",
+        "F'",
+        "F2",
+        "B",
+        "B'",
+        "B2"
     ]
 
     def __init__(self, cube: Cube) -> None:
@@ -30,7 +35,7 @@ class Solver:
 
     def solve(self) -> None:
         print("Solving...")
-        print(f"{self.POSITION[0]} - {self.MOVEMENT[0]}")
+        print(f"{self.MOVEMENTS[0]}")
 
     def get_moves(self) -> list:
         return self.moves
