@@ -35,13 +35,13 @@ class Cube:
         elif face == self.BACK:
             self.faces[self.BACK][4] = "Y"
         elif face == self.LEFT:
-            self.faces[self.LEFT][4] = "G"
+            self.faces[self.LEFT][4] = "B"
         elif face == self.RIGHT:
-            self.faces[self.RIGHT][4] = "B"
+            self.faces[self.RIGHT][4] = "G"
         elif face == self.UP:
-            self.faces[self.UP][4] = "O"
+            self.faces[self.UP][4] = "R"
         elif face == self.DOWN:
-            self.faces[self.DOWN][4] = "R"
+            self.faces[self.DOWN][4] = "O"
 
 
     def get_face(self, face: str) -> list:
