@@ -64,6 +64,11 @@ class Cube:
         print(f"... {self.faces[self.DOWN][6]}{self.faces[self.DOWN][7]}{self.faces[self.DOWN][8]} ... ...")
 
 
+    # def get_edge_sticky(self, face: int, edge: int) -> chr:
+    #     # 8 - edge
+
+
+    # TODO: Refactor this method.
     def set_mov(self, movement: str) -> None:
         save = copy.deepcopy(self.faces)
 

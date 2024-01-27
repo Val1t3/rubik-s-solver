@@ -75,6 +75,20 @@ class Solver:
         return colors_list
 
 
-    def first_face_solver(self) -> list:
+    def edges_solver(self) -> list:
 
         return []
+
+
+    def corners_solver(self) -> list:
+
+        return []
+
+
+    def first_face_solver(self) -> list:
+        moves = []
+
+        moves.extend(self.edges_solver())
+        moves.extend(self.corners_solver())
+
+        return moves
