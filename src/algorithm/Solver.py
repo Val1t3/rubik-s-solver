@@ -27,15 +27,16 @@ class Solver:
         self.cube = cube
         self.moves = []
 
+
     def solve(self) -> None:
         print("\n### Solving... ###")
 
         colors_list = self.colors_cube_to_list()
-        if not self.error_handling(colors_list):
-            return
+        # if not self.error_handling(colors_list):
+        #     return
 
-        self.cube.set_mov("U")
-        self.cube.display_cube()
+        colors_str = self.format_colors(colors_list)
+        print(f"Cube string: {colors_str}")
 
 
     def error_handling(self, cube_str: str) -> bool:
@@ -64,13 +65,24 @@ class Solver:
     def colors_cube_to_list(self) -> list:
         colors_list = []
         colors_list.extend(self.cube.faces[Cube.UP])
-        colors_list.extend(self.cube.get_face(Cube.RIGHT))
-        colors_list.extend(self.cube.get_face(Cube.FRONT))
-        colors_list.extend(self.cube.get_face(Cube.DOWN))
         colors_list.extend(self.cube.get_face(Cube.LEFT))
+        colors_list.extend(self.cube.get_face(Cube.FRONT))
+        colors_list.extend(self.cube.get_face(Cube.RIGHT))
         colors_list.extend(self.cube.get_face(Cube.BACK))
+        colors_list.extend(self.cube.get_face(Cube.DOWN))
 
         return colors_list
+
+
+    def format_colors(self, colors: list) -> str:
+        res = "".join(colors)
+        res = res.replace("Y", "_")
+        res = res.replace("R", "Y")
+        res = res.replace("W", "R")
+        res = res.replace("O", "W")
+        res = res.replace("_", "O")
+
+        return res.lower()
 
 
     def edges_solver(self) -> list:
