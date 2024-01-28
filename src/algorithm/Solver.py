@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-import pytwisty
-
 from src.cube.Cube import Cube
 
 class Solver:
