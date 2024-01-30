@@ -51,7 +51,7 @@ class Cube:
 
 
     def display_cube(self) -> None:
-        print(f"... {self.faces[self.UP][0]}{self.faces[self.UP][1]}{self.faces[self.UP][2]} ... ...")
+        print(f"\n... {self.faces[self.UP][0]}{self.faces[self.UP][1]}{self.faces[self.UP][2]} ... ...")
         print(f"... {self.faces[self.UP][3]}{self.faces[self.UP][4]}{self.faces[self.UP][5]} ... ...")
         print(f"... {self.faces[self.UP][6]}{self.faces[self.UP][7]}{self.faces[self.UP][8]} ... ...")
         print()
@@ -69,7 +69,7 @@ class Cube:
 
 
     # TODO: Refactor this method.
-    def set_mov(self, movement: str) -> None:
+    def rotate(self, movement: str) -> None:
         save = copy.deepcopy(self.faces)
 
         if movement == "U":
