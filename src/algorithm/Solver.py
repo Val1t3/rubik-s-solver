@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 
+import copy
+import kociemba
+
+
 from src.cube.Cube import Cube
 
-import copy
 
 class Solver:
 
@@ -32,7 +35,15 @@ class Solver:
 
     def solve(self) -> None:
         print("\n### Solving... ###")
-        res_moves = []
+
+        # cube_str = self.format_colors(self.colors_cube_to_list())
+        cube_str = "UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB"
+        print(f"Cube string: {cube_str}")
+        if not self.error_handling(cube_str):
+            return
+
+        res = kociemba.solve(cube_str)
+        print(f"Moves: {res}")
 
         # colors_list = self.colors_cube_to_list()
         # if not self.error_handling(colors_list):
@@ -42,23 +53,23 @@ class Solver:
         # print(f"Cube string: {colors_str}")
 
         # Check for every piece of the FRONT face
-        for i in range(len(self.cube.faces[Cube.FRONT])):
-            if self.cube.faces[Cube.FRONT][i] != self.cube.faces[Cube.FRONT][4]:
-                # try for 1 move, 2 moves, 3 moves...
-                new_moves = self.check_one_rotation(self.cube.faces[Cube.FRONT][4], i)
-                if not new_moves:
-                    new_moves = self.check_two_rotations(self.cube.faces[Cube.FRONT][4], i)
-                if not new_moves:
-                    new_moves = self.check_three_rotations(self.cube.faces[Cube.FRONT][4], i)
-                # do new_moves on cube.
-                for move in new_moves:
-                    self.cube.rotate(move)
-                # add moves to res_moves.
-                res_moves.extend(new_moves)
-                self.cube.display_cube()
+        # for i in range(len(self.cube.faces[Cube.FRONT])):
+        #     if self.cube.faces[Cube.FRONT][i] != self.cube.faces[Cube.FRONT][4]:
+        #         # try for 1 move, 2 moves, 3 moves...
+        #         new_moves = self.check_one_rotation(self.cube.faces[Cube.FRONT][4], i)
+        #         if not new_moves:
+        #             new_moves = self.check_two_rotations(self.cube.faces[Cube.FRONT][4], i)
+        #         if not new_moves:
+        #             new_moves = self.check_three_rotations(self.cube.faces[Cube.FRONT][4], i)
+        #         # do new_moves on cube.
+        #         for move in new_moves:
+        #             self.cube.rotate(move)
+        #         # add moves to res_moves.
+        #         res_moves.extend(new_moves)
+        #         self.cube.display_cube()
 
-        print(f"Moves: {res_moves}")
-        self.cube.display_cube()
+        # print(f"Moves: {res_moves}")
+        # self.cube.display_cube()
 
 
     def check_one_rotation(self, color: chr, index: int) -> list:
@@ -165,24 +176,30 @@ class Solver:
 
 
     def error_handling(self, cube_str: str) -> bool:
+        # Check for correct cube string length
         if len(cube_str) != 54:
             print("Error: The cube string must be 54 characters long.")
             return False
 
         # Check for correct center pieces
         center_pieces_indices = [4, 13, 22, 31, 40, 49]
-        expected_centers = 'RGWOBY'
+        expected_centers = 'URFDLB'
         for i, center in zip(center_pieces_indices, expected_centers):
             if cube_str[i] != center:
                 print(f"Error: Center piece for {center} face is incorrect. Found {cube_str[i]}")
                 return False
 
         # Check for correct count of each color
-        for color in 'RGWOBY':
+        for color in 'URFDLB':
             count = cube_str.count(color)
             if count != 9:
                 print(f"Error: Color {color} count mismatch. Found {count}, expected 9.")
                 return False
+
+        # Check if cube is already solved
+        if cube_str == "UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB":
+            print("Cube already solved.")
+            return False
 
         return True
 
@@ -190,11 +207,11 @@ class Solver:
     def colors_cube_to_list(self) -> list:
         colors_list = []
         colors_list.extend(self.cube.faces[Cube.UP])
-        colors_list.extend(self.cube.get_face(Cube.FRONT))
         colors_list.extend(self.cube.get_face(Cube.RIGHT))
-        colors_list.extend(self.cube.get_face(Cube.BACK))
-        colors_list.extend(self.cube.get_face(Cube.LEFT))
+        colors_list.extend(self.cube.get_face(Cube.FRONT))
         colors_list.extend(self.cube.get_face(Cube.DOWN))
+        colors_list.extend(self.cube.get_face(Cube.LEFT))
+        colors_list.extend(self.cube.get_face(Cube.BACK))
 
         return colors_list
 
