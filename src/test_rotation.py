@@ -45,7 +45,7 @@ def main() -> None:
         and cube_r.faces[Cube.Cube.LEFT] == ["B", "B", "B", "B", "B", "B", "B", "B", "B"]\
         and cube_r.faces[Cube.Cube.UP] == ["R", "R", "W", "R", "R", "W", "R", "R", "W"]\
         and cube_r.faces[Cube.Cube.DOWN] == ["O", "O", "Y", "O", "O", "Y", "O", "O", "Y"]\
-        and cube_r.faces[Cube.Cube.BACK] == ["Y", "Y", "R", "Y", "Y", "R", "Y", "Y", "R"]:
+        and cube_r.faces[Cube.Cube.BACK] == ["R", "Y", "Y", "R", "Y", "Y", "R", "Y", "Y"]:
         print(colored("R move is correct.", "green"))
     else:
         print(colored("R move is incorrect.", "red"))
@@ -53,7 +53,7 @@ def main() -> None:
     cube_r_prime = copy.deepcopy(cube)
     cube_r_prime.rotate("R'")
     if cube_r_prime.faces[Cube.Cube.FRONT] == ["W", "W", "R", "W", "W", "R", "W", "W", "R"]\
-        and cube_r_prime.faces[Cube.Cube.RIGHT] == ["R", "G", "G", "R", "G", "G", "R", "G", "G"]\
+        and cube_r_prime.faces[Cube.Cube.RIGHT] == ["G", "G", "G", "G", "G", "G", "G", "G", "G"]\
         and cube_r_prime.faces[Cube.Cube.LEFT] == ["B", "B", "B", "B", "B", "B", "B", "B", "B"]\
         and cube_r_prime.faces[Cube.Cube.UP] == ["R", "R", "Y", "R", "R", "Y", "R", "R", "Y"]\
         and cube_r_prime.faces[Cube.Cube.DOWN] == ["O", "O", "W", "O", "O", "W", "O", "O", "W"]\
