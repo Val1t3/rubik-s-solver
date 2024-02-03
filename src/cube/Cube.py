@@ -64,11 +64,6 @@ class Cube:
         print(f"... {self.faces[self.DOWN][6]}{self.faces[self.DOWN][7]}{self.faces[self.DOWN][8]} ... ...")
 
 
-    # def get_edge_sticky(self, face: int, edge: int) -> chr:
-    #     # 8 - edge
-
-
-    # TODO: Refactor this method.
     def rotate(self, movement: str) -> None:
         save = copy.deepcopy(self.faces)
 
@@ -324,3 +319,31 @@ class Cube:
             self.faces[self.RIGHT][2] = save[self.UP][2]
             self.faces[self.RIGHT][5] = save[self.UP][1]
             self.faces[self.RIGHT][8] = save[self.UP][0]
+
+
+    def format_colors(self, colors: list) -> str:
+        res = "".join(colors)
+        res = res.replace("W", "F")
+        res = res.replace("B", "L")
+        res = res.replace("Y", "B")
+        res = res.replace("R", "U")
+        res = res.replace("G", "R")
+        res = res.replace("O", "D")
+
+        return res
+
+
+    def cube_to_list(self) -> list:
+        colors_list = []
+        colors_list.extend(self.get_face(Cube.UP))
+        colors_list.extend(self.get_face(Cube.RIGHT))
+        colors_list.extend(self.get_face(Cube.FRONT))
+        colors_list.extend(self.get_face(Cube.DOWN))
+        colors_list.extend(self.get_face(Cube.LEFT))
+        colors_list.extend(self.get_face(Cube.BACK))
+
+        return colors_list
+
+
+    def is_solved(self) -> bool:
+        return self.format_colors(self.cube_to_list()) == "FFFFFFFFFRRRRRRRRRBBBBBBBBBLLLLLLLLLDDDDDDDDD"

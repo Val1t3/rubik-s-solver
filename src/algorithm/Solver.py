@@ -35,41 +35,37 @@ class Solver:
 
     def solve(self) -> None:
         print("\n### Solving... ###")
+        res_list  = ""
 
-        # cube_str = self.format_colors(self.colors_cube_to_list())
-        cube_str = "UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB"
-        print(f"Cube string: {cube_str}")
-        if not self.error_handling(cube_str):
-            return
 
-        res = kociemba.solve(cube_str)
+        while True:
+            cube_str = Cube().format_colors(self.cube.cube_to_list())
+
+            print(f"Cube string: {cube_str}")
+            if not self.error_handling(cube_str):
+                return
+
+            res = kociemba.solve(cube_str)
+
+            # add moves to res_list.
+            res_list += res + " "
+            print(f"Moves: {res}")
+
+            # do moves on cube.
+            for move in res.split():
+                if move[-1] == "2":
+                    self.cube.rotate(move[:-1])
+                    self.cube.rotate(move[:-1])
+                else:
+                    self.cube.rotate(move)
+
+            # verify if the cube is solved.
+            if self.cube.is_solved():
+                break
+            # if not, redo loop.
+
+        # else, print the moves.
         print(f"Moves: {res}")
-
-        # colors_list = self.colors_cube_to_list()
-        # if not self.error_handling(colors_list):
-        #     return
-
-        # colors_str = self.format_colors(colors_list)
-        # print(f"Cube string: {colors_str}")
-
-        # Check for every piece of the FRONT face
-        # for i in range(len(self.cube.faces[Cube.FRONT])):
-        #     if self.cube.faces[Cube.FRONT][i] != self.cube.faces[Cube.FRONT][4]:
-        #         # try for 1 move, 2 moves, 3 moves...
-        #         new_moves = self.check_one_rotation(self.cube.faces[Cube.FRONT][4], i)
-        #         if not new_moves:
-        #             new_moves = self.check_two_rotations(self.cube.faces[Cube.FRONT][4], i)
-        #         if not new_moves:
-        #             new_moves = self.check_three_rotations(self.cube.faces[Cube.FRONT][4], i)
-        #         # do new_moves on cube.
-        #         for move in new_moves:
-        #             self.cube.rotate(move)
-        #         # add moves to res_moves.
-        #         res_moves.extend(new_moves)
-        #         self.cube.display_cube()
-
-        # print(f"Moves: {res_moves}")
-        # self.cube.display_cube()
 
 
     def check_one_rotation(self, color: chr, index: int) -> list:
@@ -204,25 +200,25 @@ class Solver:
         return True
 
 
-    def colors_cube_to_list(self) -> list:
-        colors_list = []
-        colors_list.extend(self.cube.faces[Cube.UP])
-        colors_list.extend(self.cube.get_face(Cube.RIGHT))
-        colors_list.extend(self.cube.get_face(Cube.FRONT))
-        colors_list.extend(self.cube.get_face(Cube.DOWN))
-        colors_list.extend(self.cube.get_face(Cube.LEFT))
-        colors_list.extend(self.cube.get_face(Cube.BACK))
+    # def colors_cube_to_list(self) -> list:
+    #     colors_list = []
+    #     colors_list.extend(self.cube.faces[Cube.UP])
+    #     colors_list.extend(self.cube.get_face(Cube.RIGHT))
+    #     colors_list.extend(self.cube.get_face(Cube.FRONT))
+    #     colors_list.extend(self.cube.get_face(Cube.DOWN))
+    #     colors_list.extend(self.cube.get_face(Cube.LEFT))
+    #     colors_list.extend(self.cube.get_face(Cube.BACK))
 
-        return colors_list
+    #     return colors_list
 
 
-    def format_colors(self, colors: list) -> str:
-        res = "".join(colors)
-        res = res.replace("W", "F")
-        res = res.replace("B", "L")
-        res = res.replace("Y", "B")
-        res = res.replace("R", "U")
-        res = res.replace("G", "R")
-        res = res.replace("O", "D")
+    # def format_colors(self, colors: list) -> str:
+    #     res = "".join(colors)
+    #     res = res.replace("W", "F")
+    #     res = res.replace("B", "L")
+    #     res = res.replace("Y", "B")
+    #     res = res.replace("R", "U")
+    #     res = res.replace("G", "R")
+    #     res = res.replace("O", "D")
 
-        return res.lower()
+    #     return res

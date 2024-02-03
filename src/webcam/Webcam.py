@@ -5,6 +5,7 @@ import cv2
 from src.webcam.utils.Square import Square
 from src.cube.Cube import Cube
 from src.webcam.parser.ColorParser import ColorParser
+from src.algorithm.Solver import Solver
 
 class Webcam:
 
@@ -43,6 +44,8 @@ class Webcam:
         if key == ord('q'):
             self.cap.release()
             cv2.destroyAllWindows()
+        elif key == ord('a'):
+            Solver(self.cube).solve()
         elif key == ord('&'):
             self.cube.set_face(Cube.FRONT, self.check_color(frame))
             self.cube.display_cube()
