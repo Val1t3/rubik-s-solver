@@ -79,7 +79,7 @@ def main() -> None:
     if cube_f_prime.faces[Cube.Cube.FRONT] == ["W", "W", "W", "W", "W", "W", "W", "W", "W"]\
         and cube_f_prime.faces[Cube.Cube.RIGHT] == ["O", "G", "G", "O", "G", "G", "O", "G", "G"]\
         and cube_f_prime.faces[Cube.Cube.LEFT] == ["B", "B", "R", "B", "B", "R", "B", "B", "R"]\
-        and cube_f_prime.faces[Cube.Cube.UP] == ["O", "O", "O", "O", "O", "O", "G", "G", "G"]\
+        and cube_f_prime.faces[Cube.Cube.UP] == ["R", "R", "R", "R", "R", "R", "G", "G", "G"]\
         and cube_f_prime.faces[Cube.Cube.DOWN] == ["B", "B", "B", "O", "O", "O", "O", "O", "O"]\
         and cube_f_prime.faces[Cube.Cube.BACK] == ["Y", "Y", "Y", "Y", "Y", "Y", "Y", "Y", "Y"]:
         print(colored("F' move is correct.", "green"))
