@@ -193,6 +193,7 @@ class Cube:
             self.faces[self.FRONT][2] = save[self.UP][2]
             self.faces[self.FRONT][5] = save[self.UP][5]
             self.faces[self.FRONT][8] = save[self.UP][8]
+            self.display_cube()
         elif movement == "L":
             self.faces[self.LEFT][0] = save[self.LEFT][6]
             self.faces[self.LEFT][1] = save[self.LEFT][3]

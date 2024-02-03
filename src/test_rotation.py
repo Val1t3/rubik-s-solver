@@ -86,6 +86,30 @@ def main() -> None:
     else:
         print(colored("F' move is incorrect.", "red"))
 
+    cube_l = copy.deepcopy(cube)
+    cube_l.rotate("L")
+    if cube_l.faces[Cube.Cube.FRONT] == ["R", "W", "W", "R", "W", "W", "R", "W", "W"]\
+        and cube_l.faces[Cube.Cube.RIGHT] == ["G", "G", "G", "G", "G", "G", "G", "G", "G"]\
+        and cube_l.faces[Cube.Cube.LEFT] == ["B", "B", "B", "B", "B", "B", "B", "B", "B"]\
+        and cube_l.faces[Cube.Cube.UP] == ["Y", "R", "R", "Y", "R", "R", "Y", "R", "R"]\
+        and cube_l.faces[Cube.Cube.DOWN] == ["W", "O", "O", "W", "O", "O", "W", "O", "O"]\
+        and cube_l.faces[Cube.Cube.BACK] == ["Y", "Y", "O", "Y", "Y", "O", "Y", "Y", "O"]:
+        print(colored("L move is correct.", "green"))
+    else:
+        print(colored("L move is incorrect.", "red"))
+
+    cube_l_prime = copy.deepcopy(cube)
+    cube_l_prime.rotate("L'")
+    if cube_l_prime.faces[Cube.Cube.FRONT] == ["O", "W", "W", "O", "W", "W", "O", "W", "W"]\
+        and cube_l_prime.faces[Cube.Cube.RIGHT] == ["G", "G", "G", "G", "G", "G", "G", "G", "G"]\
+        and cube_l_prime.faces[Cube.Cube.LEFT] == ["B", "B", "B", "B", "B", "B", "B", "B", "B"]\
+        and cube_l_prime.faces[Cube.Cube.UP] == ["W", "R", "R", "W", "R", "R", "W", "R", "R"]\
+        and cube_l_prime.faces[Cube.Cube.DOWN] == ["Y", "O", "O", "Y", "O", "O", "Y", "O", "O"]\
+        and cube_l_prime.faces[Cube.Cube.BACK] == ["Y", "Y", "R", "Y", "Y", "R", "Y", "Y", "R"]:
+        print(colored("L' move is correct.", "green"))
+    else:
+        print(colored("L' move is incorrect.", "red"))
+
 
 if __name__ == "__main__":
     main()
