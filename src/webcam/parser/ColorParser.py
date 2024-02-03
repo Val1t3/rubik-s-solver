@@ -2,7 +2,7 @@
 
 import cv2
 
-from src.webcam.utils.Utils import Utils
+from webcam.utils.Utils import Utils
 
 class ColorParser:
 

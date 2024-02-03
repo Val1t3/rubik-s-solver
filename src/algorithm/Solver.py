@@ -3,9 +3,7 @@
 import copy
 import kociemba
 
-
-from src.cube.Cube import Cube
-
+from cube.Cube import Cube
 
 class Solver:
 

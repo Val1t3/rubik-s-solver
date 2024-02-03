@@ -2,10 +2,10 @@
 
 import cv2
 
-from src.webcam.utils.Square import Square
-from src.cube.Cube import Cube
-from src.webcam.parser.ColorParser import ColorParser
-from src.algorithm.Solver import Solver
+from webcam.utils.Square import Square
+from cube.Cube import Cube
+from webcam.parser.ColorParser import ColorParser
+from algorithm.Solver import Solver
 
 class Webcam:
 

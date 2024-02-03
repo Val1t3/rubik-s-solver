@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-from src.webcam.Webcam import Webcam
-from src.cube.Cube import Cube
-from src.algorithm.Solver import Solver
+from webcam.Webcam import Webcam
+from cube.Cube import Cube
+from algorithm.Solver import Solver
 
 def main() -> None:
     cube = Cube()
