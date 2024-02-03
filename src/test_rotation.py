@@ -57,7 +57,7 @@ def main() -> None:
         and cube_r_prime.faces[Cube.Cube.LEFT] == ["B", "B", "B", "B", "B", "B", "B", "B", "B"]\
         and cube_r_prime.faces[Cube.Cube.UP] == ["R", "R", "Y", "R", "R", "Y", "R", "R", "Y"]\
         and cube_r_prime.faces[Cube.Cube.DOWN] == ["O", "O", "W", "O", "O", "W", "O", "O", "W"]\
-        and cube_r_prime.faces[Cube.Cube.BACK] == ["Y", "Y", "O", "Y", "Y", "O", "Y", "Y", "O"]:
+        and cube_r_prime.faces[Cube.Cube.BACK] == ["O", "Y", "Y", "O", "Y", "Y", "O", "Y", "Y"]:
         print(colored("R' move is correct.", "green"))
     else:
         print(colored("R' move is incorrect.", "red"))
