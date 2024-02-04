@@ -253,9 +253,9 @@ class Cube:
             self.faces[self.DOWN][0] = save[self.RIGHT][6]
             self.faces[self.DOWN][1] = save[self.RIGHT][3]
             self.faces[self.DOWN][2] = save[self.RIGHT][0]
-            self.faces[self.RIGHT][0] = save[self.UP][8]
+            self.faces[self.RIGHT][0] = save[self.UP][6]
             self.faces[self.RIGHT][3] = save[self.UP][7]
-            self.faces[self.RIGHT][6] = save[self.UP][6]
+            self.faces[self.RIGHT][6] = save[self.UP][8]
         elif movement == "F'":
             self.faces[self.FRONT][0] = save[self.FRONT][2]
             self.faces[self.FRONT][1] = save[self.FRONT][5]
