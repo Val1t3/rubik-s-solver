@@ -35,7 +35,6 @@ class Solver:
         print("\n### Solving... ###")
         res_list  = ""
 
-
         while True:
             cube_str = Cube().format_colors(self.cube.cube_to_list())
 
@@ -196,27 +195,3 @@ class Solver:
             return False
 
         return True
-
-
-    # def colors_cube_to_list(self) -> list:
-    #     colors_list = []
-    #     colors_list.extend(self.cube.faces[Cube.UP])
-    #     colors_list.extend(self.cube.get_face(Cube.RIGHT))
-    #     colors_list.extend(self.cube.get_face(Cube.FRONT))
-    #     colors_list.extend(self.cube.get_face(Cube.DOWN))
-    #     colors_list.extend(self.cube.get_face(Cube.LEFT))
-    #     colors_list.extend(self.cube.get_face(Cube.BACK))
-
-    #     return colors_list
-
-
-    # def format_colors(self, colors: list) -> str:
-    #     res = "".join(colors)
-    #     res = res.replace("W", "F")
-    #     res = res.replace("B", "L")
-    #     res = res.replace("Y", "B")
-    #     res = res.replace("R", "U")
-    #     res = res.replace("G", "R")
-    #     res = res.replace("O", "D")
-
-    #     return res
