@@ -46,10 +46,10 @@ def main() -> None:
     cube_b = copy.deepcopy(cube)
     cube_b.rotate("B")
     if cube_b.faces[Cube.Cube.FRONT] == ["W", "W", "W", "W", "W", "W", "W", "W", "W"]\
-        and cube_b.faces[Cube.Cube.RIGHT] == ["G", "G", "R", "G", "G", "R", "G", "G", "R"]\
-        and cube_b.faces[Cube.Cube.LEFT] == ["O", "B", "B", "O", "B", "B", "O", "B", "B"]\
-        and cube_b.faces[Cube.Cube.UP] == ["B", "B", "B", "R", "R", "R", "R", "R", "R"]\
-        and cube_b.faces[Cube.Cube.DOWN] == ["O", "O", "O", "O", "O", "O", "G", "G", "G"]\
+        and cube_b.faces[Cube.Cube.RIGHT] == ["G", "G", "O", "G", "G", "O", "G", "G", "O"]\
+        and cube_b.faces[Cube.Cube.LEFT] == ["R", "B", "B", "R", "B", "B", "R", "B", "B"]\
+        and cube_b.faces[Cube.Cube.UP] == ["G", "G", "G", "R", "R", "R", "R", "R", "R"]\
+        and cube_b.faces[Cube.Cube.DOWN] == ["O", "O", "O", "O", "O", "O", "B", "B", "B"]\
         and cube_b.faces[Cube.Cube.BACK] == ["Y", "Y", "Y", "Y", "Y", "Y", "Y", "Y", "Y"]:
         print(colored("B move is correct.", "green"))
     else:
@@ -58,10 +58,10 @@ def main() -> None:
     cube_b_prime = copy.deepcopy(cube)
     cube_b_prime.rotate("B'")
     if cube_b_prime.faces[Cube.Cube.FRONT] == ["W", "W", "W", "W", "W", "W", "W", "W", "W"]\
-        and cube_b_prime.faces[Cube.Cube.RIGHT] == ["G", "G", "O", "G", "G", "O", "G", "G", "O"]\
-        and cube_b_prime.faces[Cube.Cube.LEFT] == ["R", "B", "B", "R", "B", "B", "R", "B", "B"]\
-        and cube_b_prime.faces[Cube.Cube.UP] == ["G", "G", "G", "R", "R", "R", "R", "R", "R"]\
-        and cube_b_prime.faces[Cube.Cube.DOWN] == ["O", "O", "O", "O", "O", "O", "B", "B", "B"]\
+        and cube_b_prime.faces[Cube.Cube.RIGHT] == ["G", "G", "R", "G", "G", "R", "G", "G", "R"]\
+        and cube_b_prime.faces[Cube.Cube.LEFT] == ["O", "B", "B", "O", "B", "B", "O", "B", "B"]\
+        and cube_b_prime.faces[Cube.Cube.UP] == ["B", "B", "B", "R", "R", "R", "R", "R", "R"]\
+        and cube_b_prime.faces[Cube.Cube.DOWN] == ["O", "O", "O", "O", "O", "O", "G", "G", "G"]\
         and cube_b_prime.faces[Cube.Cube.BACK] == ["Y", "Y", "Y", "Y", "Y", "Y", "Y", "Y", "Y"]:
         print(colored("B' move is correct.", "green"))
     else:
