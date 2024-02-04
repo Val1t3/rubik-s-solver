@@ -51,17 +51,17 @@ class Cube:
 
 
     def display_cube(self) -> None:
-        print(f"\n... {self.faces[self.UP][0]}{self.faces[self.UP][1]}{self.faces[self.UP][2]} ... ...")
-        print(f"... {self.faces[self.UP][3]}{self.faces[self.UP][4]}{self.faces[self.UP][5]} ... ...")
-        print(f"... {self.faces[self.UP][6]}{self.faces[self.UP][7]}{self.faces[self.UP][8]} ... ...")
+        print(f"\n... {Utils().display_color(self.faces[self.UP][0])}{Utils().display_color(self.faces[self.UP][1])}{Utils().display_color(self.faces[self.UP][2])} ... ...")
+        print(f"... {Utils().display_color(self.faces[self.UP][3])}{Utils().display_color(self.faces[self.UP][4])}{Utils().display_color(self.faces[self.UP][5])} ... ...")
+        print(f"... {Utils().display_color(self.faces[self.UP][6])}{Utils().display_color(self.faces[self.UP][7])}{Utils().display_color(self.faces[self.UP][8])} ... ...")
         print()
-        print(f"{self.faces[self.LEFT][0]}{self.faces[self.LEFT][1]}{self.faces[self.LEFT][2]} {self.faces[self.FRONT][0]}{self.faces[self.FRONT][1]}{self.faces[self.FRONT][2]} {self.faces[self.RIGHT][0]}{self.faces[self.RIGHT][1]}{self.faces[self.RIGHT][2]} {self.faces[self.BACK][0]}{self.faces[self.BACK][1]}{self.faces[self.BACK][2]}")
-        print(f"{self.faces[self.LEFT][3]}{self.faces[self.LEFT][4]}{self.faces[self.LEFT][5]} {self.faces[self.FRONT][3]}{self.faces[self.FRONT][4]}{self.faces[self.FRONT][5]} {self.faces[self.RIGHT][3]}{self.faces[self.RIGHT][4]}{self.faces[self.RIGHT][5]} {self.faces[self.BACK][3]}{self.faces[self.BACK][4]}{self.faces[self.BACK][5]}")
-        print(f"{self.faces[self.LEFT][6]}{self.faces[self.LEFT][7]}{self.faces[self.LEFT][8]} {self.faces[self.FRONT][6]}{self.faces[self.FRONT][7]}{self.faces[self.FRONT][8]} {self.faces[self.RIGHT][6]}{self.faces[self.RIGHT][7]}{self.faces[self.RIGHT][8]} {self.faces[self.BACK][6]}{self.faces[self.BACK][7]}{self.faces[self.BACK][8]}")
+        print(f"{Utils().display_color(self.faces[self.LEFT][0])}{Utils().display_color(self.faces[self.LEFT][1])}{Utils().display_color(self.faces[self.LEFT][2])} {Utils().display_color(self.faces[self.FRONT][0])}{Utils().display_color(self.faces[self.FRONT][1])}{Utils().display_color(self.faces[self.FRONT][2])} {Utils().display_color(self.faces[self.RIGHT][0])}{Utils().display_color(self.faces[self.RIGHT][1])}{Utils().display_color(self.faces[self.RIGHT][2])} {Utils().display_color(self.faces[self.BACK][0])}{Utils().display_color(self.faces[self.BACK][1])}{Utils().display_color(self.faces[self.BACK][2])}")
+        print(f"{Utils().display_color(self.faces[self.LEFT][3])}{Utils().display_color(self.faces[self.LEFT][4])}{Utils().display_color(self.faces[self.LEFT][5])} {Utils().display_color(self.faces[self.FRONT][3])}{Utils().display_color(self.faces[self.FRONT][4])}{Utils().display_color(self.faces[self.FRONT][5])} {Utils().display_color(self.faces[self.RIGHT][3])}{Utils().display_color(self.faces[self.RIGHT][4])}{Utils().display_color(self.faces[self.RIGHT][5])} {Utils().display_color(self.faces[self.BACK][3])}{Utils().display_color(self.faces[self.BACK][4])}{Utils().display_color(self.faces[self.BACK][5])}")
+        print(f"{Utils().display_color(self.faces[self.LEFT][6])}{Utils().display_color(self.faces[self.LEFT][7])}{Utils().display_color(self.faces[self.LEFT][8])} {Utils().display_color(self.faces[self.FRONT][6])}{Utils().display_color(self.faces[self.FRONT][7])}{Utils().display_color(self.faces[self.FRONT][8])} {Utils().display_color(self.faces[self.RIGHT][6])}{Utils().display_color(self.faces[self.RIGHT][7])}{Utils().display_color(self.faces[self.RIGHT][8])} {Utils().display_color(self.faces[self.BACK][6])}{Utils().display_color(self.faces[self.BACK][7])}{Utils().display_color(self.faces[self.BACK][8])}")
         print()
-        print(f"... {self.faces[self.DOWN][0]}{self.faces[self.DOWN][1]}{self.faces[self.DOWN][2]} ... ...")
-        print(f"... {self.faces[self.DOWN][3]}{self.faces[self.DOWN][4]}{self.faces[self.DOWN][5]} ... ...")
-        print(f"... {self.faces[self.DOWN][6]}{self.faces[self.DOWN][7]}{self.faces[self.DOWN][8]} ... ...\n")
+        print(f"... {Utils().display_color(self.faces[self.DOWN][0])}{Utils().display_color(self.faces[self.DOWN][1])}{Utils().display_color(self.faces[self.DOWN][2])} ... ...")
+        print(f"... {Utils().display_color(self.faces[self.DOWN][3])}{Utils().display_color(self.faces[self.DOWN][4])}{Utils().display_color(self.faces[self.DOWN][5])} ... ...")
+        print(f"... {Utils().display_color(self.faces[self.DOWN][6])}{Utils().display_color(self.faces[self.DOWN][7])}{Utils().display_color(self.faces[self.DOWN][8])} ... ...\n")
 
 
     def rotate(self, movement: str) -> None:
