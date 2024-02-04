@@ -33,39 +33,16 @@ class Solver:
 
     def solve(self) -> None:
         print("\n### Solving... ###")
-        res_list  = ""
-        i = 0
 
-        while i < 5:
-            print(f"Loop -> {i}")
-            cube_str = Cube().format_colors(self.cube.cube_to_list())
+        cube_str = Cube().format_colors(self.cube.cube_to_list())
 
-            print(f"Cube string: {cube_str}")
-            if not self.error_handling(cube_str):
-                return
+        print(f"Cube string: {cube_str}")
+        if not self.error_handling(cube_str):
+            return
 
-            res = kociemba.solve(cube_str)
+        res = kociemba.solve(cube_str)
 
-            # add moves to res_list.
-            res_list += res + " "
-            print(f"Moves: {res}")
-
-            # do moves on cube.
-            for move in res.split():
-                if move[-1] == "2":
-                    self.cube.rotate(move[:-1])
-                    self.cube.rotate(move[:-1])
-                else:
-                    self.cube.rotate(move)
-
-            # verify if the cube is solved.
-            if self.cube.is_solved():
-                break
-            # if not, redo loop.
-            i += 1
-
-        # else, print the moves.
-        print(f"Moves: {res}")
+        print(f"Rubik's cube is solved:\n{res}")
 
 
     def check_one_rotation(self, color: chr, index: int) -> list:
