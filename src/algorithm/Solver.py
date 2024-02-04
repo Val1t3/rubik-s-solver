@@ -34,8 +34,10 @@ class Solver:
     def solve(self) -> None:
         print("\n### Solving... ###")
         res_list  = ""
+        i = 0
 
-        while True:
+        while i < 5:
+            print(f"Loop -> {i}")
             cube_str = Cube().format_colors(self.cube.cube_to_list())
 
             print(f"Cube string: {cube_str}")
@@ -60,6 +62,7 @@ class Solver:
             if self.cube.is_solved():
                 break
             # if not, redo loop.
+            i += 1
 
         # else, print the moves.
         print(f"Moves: {res}")
