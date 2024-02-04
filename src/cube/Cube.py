@@ -109,7 +109,7 @@ class Cube:
             self.faces[self.FRONT][0] = save[self.LEFT][0]
             self.faces[self.FRONT][1] = save[self.LEFT][1]
             self.faces[self.FRONT][2] = save[self.LEFT][2]
-        elif movement == "D":
+        elif movement == "D'":
             self.faces[self.DOWN][0] = save[self.DOWN][6]
             self.faces[self.DOWN][1] = save[self.DOWN][3]
             self.faces[self.DOWN][2] = save[self.DOWN][0]
@@ -130,7 +130,7 @@ class Cube:
             self.faces[self.BACK][6] = save[self.LEFT][6]
             self.faces[self.BACK][7] = save[self.LEFT][7]
             self.faces[self.BACK][8] = save[self.LEFT][8]
-        elif movement == "D'":
+        elif movement == "D":
             self.faces[self.DOWN][0] = save[self.DOWN][2]
             self.faces[self.DOWN][1] = save[self.DOWN][5]
             self.faces[self.DOWN][2] = save[self.DOWN][8]
