@@ -350,5 +350,4 @@ class Cube:
     def is_solved(self) -> bool:
         # print("Result after moves:")
         # self.display_cube()
-        print()
         return self.format_colors(self.cube_to_list()) == "UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB"

@@ -32,15 +32,15 @@ class Solver:
 
 
     def solve(self) -> None:
-            print("\n### Solving... ###")
             res_list  = ""
             i = 0
 
+            # while True:
             while i < 5:
-                print(f"Loop -> {i}")
-                cube_str = Cube().format_colors(self.cube.cube_to_list())
+                # cube_str = Cube().format_colors(self.cube.cube_to_list())
+                cube_str = "DUBDUDBBFRRRRRRBDRRLDUFBBFDUDLUDBURULLULLFLLLDBFFBFFUF"
 
-                print(f"Cube string: {cube_str}")
+                # print(f"Cube string: {cube_str}")
                 if not self.error_handling(cube_str):
                     return
 
@@ -48,7 +48,6 @@ class Solver:
 
                 # add moves to res_list.
                 res_list += res + " "
-                print(f"Moves: {res}")
 
                 # do moves on cube.
                 for move in res.split():
@@ -64,8 +63,8 @@ class Solver:
                 # if not, redo loop.
                 i += 1
 
-            # else, print the moves.
-            print(f"Moves: {res_list}")
+            # else, print moves.
+            self.display_moves(res_list)
 
 
     def check_one_rotation(self, color: chr, index: int) -> list:
@@ -198,3 +197,11 @@ class Solver:
             return False
 
         return True
+
+    def display_moves(self, moves: str) -> None:
+        print("\n### MOVES ###")
+        list_moves = moves.split(" ")
+        # print every 4 moves on a new line
+        for i in range(0, len(list_moves), 5):
+            print(" ".join(list_moves[i:i+5]))
+            print()
