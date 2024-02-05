@@ -198,6 +198,7 @@ class Solver:
 
         return True
 
+
     def display_moves(self, moves: str) -> None:
         print("\n### MOVES ###")
         list_moves = moves.split(" ")
