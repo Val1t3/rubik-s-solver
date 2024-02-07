@@ -35,10 +35,8 @@ class Solver:
             res_list  = ""
             i = 0
 
-            # while True:
-            while i < 5:
-                # cube_str = Cube().format_colors(self.cube.cube_to_list())
-                cube_str = "DUBDUDBBFRRRRRRBDRRLDUFBBFDUDLUDBURULLULLFLLLDBFFBFFUF"
+            while True:
+                cube_str = Cube().format_colors(self.cube.cube_to_list())
 
                 # print(f"Cube string: {cube_str}")
                 if not self.error_handling(cube_str):
