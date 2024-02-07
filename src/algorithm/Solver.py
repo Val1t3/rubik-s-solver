@@ -203,7 +203,8 @@ class Solver:
 
         print("\n### MOVES ###")
         for i in range(0, len(list_moves), 5):
-            print(loop, end=": ")
+            print(loop, end="-> ")
             print(" ".join(list_moves[i:i+5]))
             print()
             loop += 1
+        print("#############\n")
