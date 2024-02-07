@@ -4,15 +4,15 @@ import sys
 
 from webcam.Webcam import Webcam
 from cube.Cube import Cube
-from algorithm.Solver import Solver
 
 def main() -> None:
-    for arg in sys.argv[1:]:
-        if arg == "-h" or arg == "--help":
-            help()
-        else:
-            cube = Cube()
-            Webcam(cube).run()
+    if len(sys.argv) > 1:
+        for arg in sys.argv[1:]:
+            if arg == "-h" or arg == "--help":
+                help()
+        sys.exit(0)
+    cube = Cube()
+    Webcam(cube).run()
     sys.exit(0)
 
 

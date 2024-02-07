@@ -32,6 +32,20 @@ def main() -> None:
     else:
         print(colored("F move is incorrect.", "red"))
 
+    cube_f_prime = copy.deepcopy(cube)
+    cube_f_prime.rotate("F'")
+    cube_f_prime.display_cube()
+    if cube_f_prime.faces[Cube.Cube.FRONT] == ["W3", "W6", "W9", "W2", "W5", "W8", "W1", "W4", "W7"]\
+        and cube_f_prime.faces[Cube.Cube.RIGHT] == ["O1", "G2", "G3", "O2", "G5", "G6", "O3", "G8", "G9"]\
+        and cube_f_prime.faces[Cube.Cube.LEFT] == ["B1", "B2", "R9", "B4", "B5", "R8", "B7", "B8", "R7"]\
+        and cube_f_prime.faces[Cube.Cube.UP] == ["R1", "R2", "R3", "R4", "R5", "R6", "G1", "G4", "G7"]\
+        and cube_f_prime.faces[Cube.Cube.DOWN] == ["B3", "B6", "B9", "O4", "O5", "O6", "O7", "O8", "O9"]\
+        and cube_f_prime.faces[Cube.Cube.BACK] == ["Y3", "Y2", "Y3", "Y4", "Y5", "Y6", "Y7", "Y8", "Y9"]:
+        print(colored("F' move is correct.", "green"))
+    else:
+        print(colored("F' move is incorrect.", "red"))
+
+
     cube_b_prime = copy.deepcopy(cube)
     cube_b_prime.rotate("B'")
     cube_b_prime.display_cube()
