@@ -198,9 +198,12 @@ class Solver:
 
 
     def display_moves(self, moves: str) -> None:
-        print("\n### MOVES ###")
+        loop = 0
         list_moves = moves.split(" ")
-        # print every 4 moves on a new line
+
+        print("\n### MOVES ###")
         for i in range(0, len(list_moves), 5):
+            print(loop, end=": ")
             print(" ".join(list_moves[i:i+5]))
             print()
+            loop += 1
