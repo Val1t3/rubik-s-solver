@@ -1,8 +1,8 @@
 # ResolveRubik-s
 
-<img src="./assets/rubik&apos;s-cube.png">
+<img src="./assets/rubik&apos;s-cube.png" width="500" />
 
-> This repository implements a 3x3x3 Rubik's Cube solver using the Kociemba algorithm. The Kociemba algorithm is a two-phase algorithm that is widely used to solve the Rubik's Cube. The algorithm is based on the concept of God's number, which is the minimum number of moves required to solve the Rubik's Cube from any given position. The Kociemba algorithm is able to solve the Rubik's Cube in 20 moves or less, which is the current known upper bound for God's number.
+This repository implements a 3x3x3 Rubik's Cube solver using the Kociemba algorithm. The Kociemba algorithm is a two-phase algorithm that is widely used to solve the Rubik's Cube. The algorithm is based on the concept of God's number, which is the minimum number of moves required to solve the Rubik's Cube from any given position. The Kociemba algorithm is able to solve the Rubik's Cube in 20 moves or less, which is the current known upper bound for God's number.
 
 ## Getting Started
 
