@@ -44,9 +44,9 @@ scan every face of the Rubik's Cube:
 3 - Left
 4 - Up
 5 - Down
-6 - back
+6 - Back
 
-a - solve Rubik's Cube
+a - Solve cube
 ```
 
 Help can be found by executing the following command:
