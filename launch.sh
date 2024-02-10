@@ -1,5 +1,4 @@
 #!/bin/bash
 
 pip3 install -r requirements.txt
-make
-./rubiks-solver
+python3 src/main.py
