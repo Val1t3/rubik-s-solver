@@ -47,6 +47,7 @@ scan every face of the Rubik's Cube:
 6 - Back
 
 a - Solve cube
+q - Quit
 ```
 
 Help can be found by executing the following command:
