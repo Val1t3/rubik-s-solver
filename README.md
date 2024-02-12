@@ -58,4 +58,4 @@ python3 src/main.py -h
 ```
 
 ## Author
-[Valentin Woehrel](https://github.com/Val1t3)
+[<img src="https://github.com/Val1t3.png?size=85" width=85><br><sub>Valentin Woehrel</sub>](https://github.com/Val1t3)
