@@ -1,4 +1,4 @@
-# ResolveRubik-s
+# Rubik's Solver
 <p align="center">
 <img src="./assets/rubik&apos;s-cube.png" width="500" />
 </p>
