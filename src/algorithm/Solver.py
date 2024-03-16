@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-import copy
 import kociemba
+from termcolor import colored
 
 from cube.Cube import Cube
 
@@ -38,6 +38,7 @@ class Solver:
         while True:
             cube_str = Cube().format_colors(self.cube.cube_to_list())
             if not self.error_handling(cube_str):
+                print(colored("Error: Rubik's cube bad format.", "red"))
                 return
             res = kociemba.solve(cube_str)
             res_list += res + " "
