@@ -31,7 +31,6 @@ class DisplaySquare:
         cv2.rectangle(self.frame, (int(default_top_left_corner[0]), int(default_top_left_corner[1])), (int(default_top_left_corner[0] + self.size * 3), int(default_top_left_corner[1] + self.size * 3)), self.color, self.thickness)
 
 
-
 class SquaresManager:
     """
     Manage the squares on the webcam feed.
@@ -156,4 +155,3 @@ class SquaresManager:
         self.manage_squares()
         for square in self.squares:
             square.draw()
-
