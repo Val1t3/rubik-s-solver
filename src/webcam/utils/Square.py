@@ -3,7 +3,6 @@
 import cv2
 
 class Square:
-
     """
     Class to manage squares to display on the webcam.
     """

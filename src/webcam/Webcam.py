@@ -2,13 +2,13 @@
 
 import cv2
 
+from webcam.utils.DisplayText import DisplayText
 from webcam.utils.Square import Square
 from cube.Cube import Cube
 from webcam.parser.ColorParser import ColorParser
 from algorithm.Solver import Solver
 
 class Webcam:
-
     """
     Main class to manage the webcam and Rubik's Cube colors detection.
     """
@@ -16,11 +16,23 @@ class Webcam:
     def __init__(self, cube: Cube):
         self.cap = cv2.VideoCapture(0)
         self.cube = cube
-        self.frame_name = "Rubik's Resolver"
+        self.frame_name = "Rubik's Solver"
+        self.cap = cv2.VideoCapture(0)
         self.width, self.height = 200, 200
 
 
     def run(self) -> None:
+        """
+        Runs the webcam capture and processing loop.
+
+        This method continuously captures frames from the webcam, processes them,
+        and displays the processed frames in a window. It also handles user input
+        for controlling the program.
+
+        Returns:
+            None
+        """
+
         while True:
             ret, frame = self.cap.read()
 
@@ -36,11 +48,23 @@ class Webcam:
                     self.width, self.height = 200, 200
 
             Square(frame).draw(self.width, self.height)
+            DisplayText(frame).draw()
             cv2.imshow(self.frame_name, frame)
             self.input_management(cv2.waitKey(1), frame)
 
 
     def input_management(self, key: int, frame) -> None:
+        """
+        Handles the input management based on the key pressed.
+
+        Parameters:
+        - key (int): The key code of the pressed key.
+        - frame: The current frame from the webcam.
+
+        Returns:
+        - None
+        """
+
         if key == ord('q'):
             self.cap.release()
             cv2.destroyAllWindows()
