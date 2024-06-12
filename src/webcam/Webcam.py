@@ -2,6 +2,7 @@
 
 import cv2
 
+from webcam.utils.DisplaySquare import SquaresManager
 from webcam.utils.DisplayText import DisplayText
 from webcam.utils.Square import Square
 from cube.Cube import Cube
@@ -49,6 +50,7 @@ class Webcam:
 
             Square(frame).draw(self.width, self.height)
             DisplayText(frame).draw()
+            SquaresManager(frame, self.cube).draw()
             cv2.imshow(self.frame_name, frame)
             self.input_management(cv2.waitKey(1), frame)
 
