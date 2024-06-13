@@ -27,6 +27,6 @@ class DisplaySolution:
                 for i in range(0, len(self.solver.moves), 5):
                     moves = ' '.join(self.solver.moves[i:i+5])
                     line_number = i // 5
-                    cv2.putText(self.frame, moves, (1500, 60 + line_number * 30), self.font, self.font_scale, self.font_color, self.line_type)
+                    cv2.putText(self.frame, moves, (1500, 70 + line_number * 40), self.font, self.font_scale, self.font_color, self.line_type)
             else:
                 cv2.putText(self.frame, self.intro_text, (1200, 30), self.font, self.font_scale, self.font_color, self.line_type)

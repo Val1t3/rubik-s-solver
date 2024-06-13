@@ -56,7 +56,8 @@ class Solver:
                 print(colored("Error: Invalid cube string."))
                 return
 
-        self.moves = res_list
+
+        self.moves = res_list.split(" ")
         self.display_moves(res_list)
 
 
