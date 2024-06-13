@@ -2,6 +2,7 @@
 
 import cv2
 
+from webcam.utils.DisplaySolution import DisplaySolution
 from webcam.utils.DisplaySquare import SquaresManager
 from webcam.utils.DisplayText import DisplayText
 from webcam.utils.Square import Square
@@ -20,6 +21,7 @@ class Webcam:
         self.frame_name = "Rubik's Solver"
         self.cap = cv2.VideoCapture(0)
         self.width, self.height = 200, 200
+        self.solver = Solver(self.cube)
 
 
     def run(self) -> None:
@@ -51,6 +53,7 @@ class Webcam:
             Square(frame).draw(self.width, self.height)
             DisplayText(frame).draw()
             SquaresManager(frame, self.cube).draw()
+            DisplaySolution(frame, self.cube, self.solver).draw()
             cv2.imshow(self.frame_name, frame)
             self.input_management(cv2.waitKey(1), frame)
 
@@ -71,7 +74,7 @@ class Webcam:
             self.cap.release()
             cv2.destroyAllWindows()
         elif key == ord('a'):
-            Solver(self.cube).solve()
+            self.solver.solve()
         elif key == ord('&'):
             self.cube.set_face(Cube.FRONT, self.check_color(frame))
             self.cube.display_cube()

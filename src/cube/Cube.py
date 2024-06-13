@@ -17,7 +17,6 @@ class Cube:
     DOWN = 4
     BACK = 5
 
-
     def __init__(self):
         self.faces = {
             self.FRONT: ["X", "X", "X", "X", "X", "X", "X", "X", "X"],
@@ -88,6 +87,7 @@ class Cube:
             self.faces[self.BACK][0] = save[self.LEFT][0]
             self.faces[self.BACK][1] = save[self.LEFT][1]
             self.faces[self.BACK][2] = save[self.LEFT][2]
+
         elif movement == "U'":
             self.faces[self.UP][0] = save[self.UP][2]
             self.faces[self.UP][1] = save[self.UP][5]
@@ -109,6 +109,7 @@ class Cube:
             self.faces[self.FRONT][0] = save[self.LEFT][0]
             self.faces[self.FRONT][1] = save[self.LEFT][1]
             self.faces[self.FRONT][2] = save[self.LEFT][2]
+
         elif movement == "D'":
             self.faces[self.DOWN][0] = save[self.DOWN][2]
             self.faces[self.DOWN][1] = save[self.DOWN][5]
@@ -130,6 +131,7 @@ class Cube:
             self.faces[self.BACK][6] = save[self.LEFT][6]
             self.faces[self.BACK][7] = save[self.LEFT][7]
             self.faces[self.BACK][8] = save[self.LEFT][8]
+
         elif movement == "D":
             self.faces[self.DOWN][0] = save[self.DOWN][6]
             self.faces[self.DOWN][1] = save[self.DOWN][3]
@@ -151,6 +153,7 @@ class Cube:
             self.faces[self.FRONT][6] = save[self.LEFT][6]
             self.faces[self.FRONT][7] = save[self.LEFT][7]
             self.faces[self.FRONT][8] = save[self.LEFT][8]
+
         elif movement == "R":
             self.faces[self.RIGHT][0] = save[self.RIGHT][6]
             self.faces[self.RIGHT][1] = save[self.RIGHT][3]
@@ -172,6 +175,7 @@ class Cube:
             self.faces[self.BACK][0] = save[self.UP][8]
             self.faces[self.BACK][3] = save[self.UP][5]
             self.faces[self.BACK][6] = save[self.UP][2]
+
         elif movement == "R'":
             self.faces[self.RIGHT][0] = save[self.RIGHT][2]
             self.faces[self.RIGHT][1] = save[self.RIGHT][5]
@@ -193,6 +197,7 @@ class Cube:
             self.faces[self.FRONT][2] = save[self.UP][2]
             self.faces[self.FRONT][5] = save[self.UP][5]
             self.faces[self.FRONT][8] = save[self.UP][8]
+
         elif movement == "L":
             self.faces[self.LEFT][0] = save[self.LEFT][6]
             self.faces[self.LEFT][1] = save[self.LEFT][3]
@@ -214,6 +219,7 @@ class Cube:
             self.faces[self.FRONT][0] = save[self.UP][0]
             self.faces[self.FRONT][3] = save[self.UP][3]
             self.faces[self.FRONT][6] = save[self.UP][6]
+
         elif movement == "L'":
             self.faces[self.LEFT][0] = save[self.LEFT][2]
             self.faces[self.LEFT][1] = save[self.LEFT][5]
@@ -235,6 +241,7 @@ class Cube:
             self.faces[self.BACK][2] = save[self.UP][6]
             self.faces[self.BACK][5] = save[self.UP][3]
             self.faces[self.BACK][8] = save[self.UP][0]
+
         elif movement == "F":
             self.faces[self.FRONT][0] = save[self.FRONT][6]
             self.faces[self.FRONT][1] = save[self.FRONT][3]
@@ -256,6 +263,7 @@ class Cube:
             self.faces[self.RIGHT][0] = save[self.UP][6]
             self.faces[self.RIGHT][3] = save[self.UP][7]
             self.faces[self.RIGHT][6] = save[self.UP][8]
+
         elif movement == "F'":
             self.faces[self.FRONT][0] = save[self.FRONT][2]
             self.faces[self.FRONT][1] = save[self.FRONT][5]
@@ -277,6 +285,7 @@ class Cube:
             self.faces[self.RIGHT][0] = save[self.DOWN][2]
             self.faces[self.RIGHT][3] = save[self.DOWN][1]
             self.faces[self.RIGHT][6] = save[self.DOWN][0]
+
         elif movement == "B":
             self.faces[self.BACK][0] = save[self.BACK][6]
             self.faces[self.BACK][1] = save[self.BACK][3]
@@ -298,6 +307,7 @@ class Cube:
             self.faces[self.LEFT][0] = save[self.UP][2]
             self.faces[self.LEFT][3] = save[self.UP][1]
             self.faces[self.LEFT][6] = save[self.UP][0]
+
         elif movement == "B'":
             self.faces[self.BACK][0] = save[self.BACK][2]
             self.faces[self.BACK][1] = save[self.BACK][5]
@@ -319,8 +329,6 @@ class Cube:
             self.faces[self.LEFT][0] = save[self.DOWN][6]
             self.faces[self.LEFT][3] = save[self.DOWN][7]
             self.faces[self.LEFT][6] = save[self.DOWN][8]
-        # print(movement)
-        # self.display_cube()
 
 
     def format_colors(self, colors: list) -> str:
@@ -349,3 +357,10 @@ class Cube:
 
     def is_solved(self) -> bool:
         return self.format_colors(self.cube_to_list()) == "UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB"
+
+
+    def contains_x(self) -> bool:
+        for face in self.faces.values():
+            if "X" in face:
+                return True
+        return False

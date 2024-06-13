@@ -40,18 +40,23 @@ class Solver:
             if not self.error_handling(cube_str):
                 print(colored("Error: Rubik's cube bad format.", "red"))
                 return
-            res = kociemba.solve(cube_str)
-            res_list += res + " "
-            for move in res.split():
-                if move[-1] == "2":
-                    self.cube.rotate(move[:-1])
-                    self.cube.rotate(move[:-1])
-                else:
-                    self.cube.rotate(move)
-            if self.cube.is_solved():
-                break
-            i += 1
+            try:
+                res = kociemba.solve(cube_str)
+                res_list += res + " "
+                for move in res.split():
+                    if move[-1] == "2":
+                        self.cube.rotate(move[:-1])
+                        self.cube.rotate(move[:-1])
+                    else:
+                        self.cube.rotate(move)
+                if self.cube.is_solved():
+                    break
+                i += 1
+            except:
+                print(colored("Error: Invalid cube string."))
+                return
 
+        self.moves = res_list
         self.display_moves(res_list)
 
 
